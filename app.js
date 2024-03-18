@@ -10,6 +10,11 @@ mongoose.connect(process.env.URI, {
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
+// app.use(cors());
+
+app.use(cors({origin: '*'}));
 
 // Define routes
 app.use('/api/properties', require('./routes/properties'));
