@@ -15,7 +15,7 @@ const cors = require('cors');
 // app.use(cors());
 
 app.use(cors({origin: '*'}));
-
+app.use(express.json());
 // Define routes
 app.use('/api/properties', require('./routes/properties'));
 
