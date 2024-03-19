@@ -19,8 +19,7 @@ router.get('/', middlewareFunction, async (req, res) => {
 router.post('/updateFav', middlewareFunction, async (req, res) => {
     try {
         const { _id, flag} = req.body;
-        const properties = await Property.find({_id});
-        properties.isFav = flag;
+        const properties = await Property.findOneAndUpdate({_id}, {isFavourite: flag});
         res.json(properties);
     } catch (err) {
         res.status(500).json({ message: err.message });

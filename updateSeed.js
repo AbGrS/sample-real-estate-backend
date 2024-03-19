@@ -9,8 +9,7 @@ mongoose.connect(process.env.URI, {
 }).then(() => {
     console.log("Connected to MongoDB Atlas");
 
-
-    Property.updateMany( { enabled : { $exists : false } }, { enabled : false } )
+    Property.updateMany( { isFavourite : { $exists : false } }, { isFavourite : false } )
         .then(() => {
             console.log("schema updated successfully");
             mongoose.disconnect();
