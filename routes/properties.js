@@ -15,7 +15,7 @@ router.get('/', middlewareFunction, async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
-router.post('/addProperty', middlewareFunction, async (req, res) => {
+router.post('/postProperty', middlewareFunction, async (req, res) => {
     try {
         const { title, description, price, location, imageURL, isFavourite } = req.body;
         const properties = await Property.create({
