@@ -15,6 +15,22 @@ router.get('/', middlewareFunction, async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+router.post('/addProperty', middlewareFunction, async (req, res) => {
+    try {
+        const { title, description, price, location, imageURL, isFavourite } = req.body;
+        const properties = await Property.create({
+            title: title || '', 
+            description: description || '', 
+            price: price || 0, 
+            location: location || '',  
+            imageURL: imageURL || '', 
+            isFavourite: isFavourite || false, 
+        })
+        res.json(properties);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 router.post('/updateFav', middlewareFunction, async (req, res) => {
     try {
