@@ -26,7 +26,7 @@ router.post('/updateFav', middlewareFunction, async (req, res) => {
     }
 });
 
-router.post('/deleteProperty', middlewareFunction, async (req, res) => {
+router.delete('/deleteProperty', middlewareFunction, async (req, res) => {
     try {
         const { _id } = req.body;
         const properties = await Property.findOneAndDelete({_id});
